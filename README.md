@@ -2,11 +2,15 @@
 
 [📝支持功能](https://github.com/ihmily/Kuwo-Music/#️支持功能) • [👽️功能演示](https://github.com/ihmily/Kuwo-Music/#️功能演示) • [🧑‍💻贡献者](https://github.com/ihmily/Kuwo-Music/#️贡献者)• [🌱开发日志](https://github.com/ihmily/Kuwo-Music/#️开发日志)
 
+&emsp;
 
+&emsp;
 
 觉得代码还可以的朋友欢迎给个star
 
+&emsp;
 
+&emsp;
 
 ## 支持功能 
 
@@ -21,13 +25,13 @@
 
 无UI界面
 
-![ScreenShot1](https://github.com/ihmily/Kuwo-Music/blob/main/images/Snipaste_2022-12-14_13-45-10)
+![ScreenShot1](https://github.com/ihmily/Kuwo-Music/blob/main/images/Snipaste_2022-12-14_13-45-10.png)
 
 
 
 含UI界面
 
-![ScreenShot1](https://github.com/ihmily/Kuwo-Music/blob/main/images/Snipaste_2022-12-14_13-42-54)
+![ScreenShot1](https://github.com/ihmily/Kuwo-Music/blob/main/images/Snipaste_2022-12-14_13-42-54.png)
 
 
 
