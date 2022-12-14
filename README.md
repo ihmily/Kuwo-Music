@@ -1,6 +1,6 @@
 # Kuwo-Music
 
-[📝支持功能](https://github.com/ihmily/Kuwo-Music/#️支持功能) • [👽️功能演示](https://github.com/ihmily/Kuwo-Music/#️功能演示) • [🧑‍💻贡献者](https://github.com/ihmily/Kuwo-Music/#️贡献者)• [🌱开发日志](https://github.com/ihmily/Kuwo-Music/#️开发日志)
+[📝支持功能](https://github.com/ihmily/Kuwo-Music/#️支持功能) • [👽️功能演示](https://github.com/ihmily/Kuwo-Music/#️功能演示) • [😎贡献者](https://github.com/ihmily/Kuwo-Music/#️贡献者)• [🌱开发日志](https://github.com/ihmily/Kuwo-Music/#️开发日志)
 
 &emsp;
 
