@@ -14,25 +14,18 @@ import jsonpath
 import requests
 
 # 保存这次访问的cookies
-html=requests.session()
 keys=[]
 save_path=None
-def get_music_url(music_name):
-    url='https://kuwo.cn/'
-
-
-    html.get(url)
-    csrf=html.cookies.get_dict()['kw_token']
-    # print(csrf)
-
-    url=f'https://kuwo.cn/api/www/search/searchMusicBykeyWord?key={music_name}&pn=1&rn=30&httpsStatus=1'
-    headers = {
+headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0',
             'Accept': 'application/json, text/plain, */*',
-            'csrf': csrf,
             'Referer': 'https://kuwo.cn',
+            'Secret': '10373b58aee58943f95eaf17d38bc9cf50fbbef8e4bf4ec6401a3ae3ef8154560507f032',
+            'Cookie': 'Hm_lvt_cdb524f42f0ce19b169a8071123a4797=1687520303,1689840209; _ga=GA1.2.2021483490.1666455184; _ga_ETPBRPM9ML=GS1.2.1689840210.4.1.1689840304.60.0.0; Hm_Iuvt_cdb524f42f0ce19b169b8072123a4727=NkA4TadJGeBWwmP2mNGpYRrM8f62K8Cm; Hm_lpvt_cdb524f42f0ce19b169a8071123a4797=1689840223; _gid=GA1.2.1606176174.1689840209; _gat=1',
             }
-    json_data=html.get(url,headers=headers).json()
+def get_music_url(music_name):
+    url = f'http://kuwo.cn/api/www/search/searchMusicBykeyWord?key={music_name}&pn=1&rn=30&httpsStatus=1'
+    json_data = requests.get(url, headers=headers).json()
 
     name_list=jsonpath.jsonpath(json_data,'$..name')
     artist_list=jsonpath.jsonpath(json_data,'$..artist')
@@ -43,8 +36,8 @@ def get_music_url(music_name):
 
     keys.append(music_name)
     for i in range(length):
-        music_json = f'https://kuwo.cn/api/v1/www/music/playUrl?mid={rid_list[i]}&type=convert_url3&br=320kmp3'
-        resp = html.get(url=music_json)
+        music_json = f'http://kuwo.cn/api/v1/www/music/playUrl?mid={rid_list[i]}&type=music&httpsStatus=1'
+        resp = requests.get(url=music_json,headers=headers)
         if resp.status_code == 200:
             if resp.json()['code'] == 200:
                 mp3_url = resp.json()['data']['url']
@@ -57,8 +50,8 @@ def get_music_url(music_name):
     window["keys"].Update(values=keys, font=("微软雅黑", 10),size=(70, 8))
 
 def save_music(file_path, mp3data):
-    music_json = f'https://kuwo.cn/api/v1/www/music/playUrl?mid={mp3data[2]}&type=convert_url3&br=320kmp3'
-    mp3_url = html.get(url=music_json).json()['data']['url']
+    music_json = f'http://kuwo.cn/api/v1/www/music/playUrl?mid={mp3data[2]}&type=music&httpsStatus=1'
+    mp3_url = requests.get(url=music_json,headers=headers).json()['data']['url']
     resp = requests.get(url=mp3_url)
     if not os.path.exists(file_path):
         os.makedirs(file_path)
@@ -86,11 +79,9 @@ layout = [ # 搜索框布局  Text：文本  Combo：输入框 tooltip：鼠标�
           ]
 # 创建窗口
 window = sg.Window('酷我音乐下载器', layout, font=("微软雅黑", 12), default_element_size=(80, 1))
-
 # 事件循环 类似网页后端代码
 while True:
     event, values = window.read()
-
     if event == '搜索':
         if values['keys']:
             # 接收搜索框内容
