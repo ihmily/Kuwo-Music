@@ -4,6 +4,8 @@
 
 &emsp;
 
+最新包含酷狗、QQ、网易云等平台歌曲获取接口源码：[ihmily/music-api](https://github.com/ihmily/music-api)
+
 觉得代码还可以的朋友欢迎给个star
 
 &emsp;
